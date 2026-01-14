@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://drf2gi12vtnit"]
+[gd_scene load_steps=3 format=3 uid="uid://drf2gi12vtnit"]
 
-[node name="Game" type="Node"]
+[ext_resource type="PackedScene" uid="uid://bngr33oqhq64y" path="res://scenes/BG.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cu1cm2ic0rqsl" path="res://scenes/player.tscn" id="2_yqjtg"]
+
+[node name="main" type="Node"]
+
+[node name="BG" parent="." instance=ExtResource("1_uwrxv")]
+
+[node name="player" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(-1049, 508)
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(477, -187)
+position_smoothing_enabled = true
+position_smoothing_speed = 11.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 11.0
