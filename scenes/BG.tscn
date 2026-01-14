@@ -6,6 +6,19 @@
 
 [node name="BG" type="Node"]
 
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+texture_filter = 1
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(1152, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3"]
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_h437q")
+centered = false
+
 [node name="Parallax2D" type="Parallax2D" parent="."]
 texture_filter = 1
 scroll_scale = Vector2(0.6, 1)
@@ -13,6 +26,7 @@ repeat_size = Vector2(1152, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_dv8kr")
@@ -25,19 +39,8 @@ repeat_size = Vector2(1152, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
+z_index = -1
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("3_7yll4")
-centered = false
-
-[node name="Parallax2D3" type="Parallax2D" parent="."]
-texture_filter = 1
-scroll_scale = Vector2(0.4, 1)
-repeat_size = Vector2(1152, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("1_h437q")
 centered = false
