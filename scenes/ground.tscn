@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0klefps5x08f"]
+
+[ext_resource type="Texture2D" uid="uid://gx8o6v50u4s1" path="res://assets/Dino/img/background/ground.png" id="1_pybca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+size = Vector2(3417, 70)
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(559, 0)
+scale = Vector2(1.4852431, 1)
+texture = ExtResource("1_pybca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(560.5, 13)
+shape = SubResource("RectangleShape2D_mi8v4")

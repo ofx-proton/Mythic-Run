@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://drf2gi12vtnit"]
+[gd_scene load_steps=4 format=3 uid="uid://dmj8mbybvfxlk"]
 
-[ext_resource type="PackedScene" uid="uid://bngr33oqhq64y" path="res://scenes/BG.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://cu1cm2ic0rqsl" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://b85bj4ohkvc6g" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://0klefps5x08f" path="res://scenes/ground.tscn" id="3_lnu2h"]
 
 [node name="main" type="Node"]
 
 [node name="BG" parent="." instance=ExtResource("1_uwrxv")]
 
 [node name="player" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(-1049, 508)
+position = Vector2(-784, 572)
 
 [node name="Camera2D2" type="Camera2D" parent="player"]
 position = Vector2(477, -187)
@@ -16,3 +17,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 11.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 11.0
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(8, 664)

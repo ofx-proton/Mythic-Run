@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cu1cm2ic0rqsl"]
+[gd_scene load_steps=71 format=3 uid="uid://b85bj4ohkvc6g"]
 
 [ext_resource type="Texture2D" uid="uid://dhmn0025inxap" path="res://assets/BlueWizard/2BlueWizardJump/Dash2/DashBlue_00000.png" id="1_51ujp"]
 [ext_resource type="Script" uid="uid://v16hlvkuuxfm" path="res://scripts/player.gd" id="1_tk41t"]
@@ -81,7 +81,7 @@ region = Rect2(0, 0, 512, 512)
 [sub_resource type="SpriteFrames" id="SpriteFrames_8pj6w"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("1_51ujp")
 }, {
 "duration": 1.0,
@@ -293,6 +293,10 @@ animations = [{
 "speed": 21.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7i4v"]
+radius = 14.0
+height = 94.0
+
 [node name="player" type="CharacterBody2D"]
 z_index = 3
 script = ExtResource("1_tk41t")
@@ -302,12 +306,13 @@ texture_filter = 1
 position = Vector2(-4.000002, 5.000004)
 scale = Vector2(0.4208985, 0.38281247)
 sprite_frames = SubResource("SpriteFrames_8pj6w")
-animation = &"idle"
+animation = &"dash"
 autoplay = "idle"
+frame = 15
+frame_progress = 1.0
 
-[node name="walk" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(-11, -33)
-scale = Vector2(4, 4)
+[node name="dash" type="CollisionShape2D" parent="."]
 
-[node name="jump" type="CollisionShape2D" parent="."]
+[node name="idle" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 9)
+shape = SubResource("CapsuleShape2D_a7i4v")
