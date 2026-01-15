@@ -1,3 +1,4 @@
 extends Node2D
-@onready var transition: CanvasLayer = $Transition
+func _ready() -> void:
+	pass
 	
