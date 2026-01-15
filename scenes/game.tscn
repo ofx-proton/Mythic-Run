@@ -1,22 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmj8mbybvfxlk"]
+[gd_scene load_steps=3 format=3 uid="uid://dmj8mbybvfxlk"]
 
 [ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://b85bj4ohkvc6g" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://0klefps5x08f" path="res://scenes/ground.tscn" id="3_lnu2h"]
 
-[node name="main" type="Node"]
+[node name="main" type="Node2D"]
 
 [node name="BG" parent="." instance=ExtResource("1_uwrxv")]
 
-[node name="player" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(-784, 572)
 
-[node name="Camera2D2" type="Camera2D" parent="player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(477, -187)
 position_smoothing_enabled = true
 position_smoothing_speed = 11.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 11.0
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(8, 664)
