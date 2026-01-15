@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ckja0mj237ysc" path="res://assets/Cloud Pack/Cloud 9.png" id="8_3tjjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yll4"]
-size = Vector2(2312, 82)
+size = Vector2(2312, 90)
 
 [node name="BG" type="Node"]
 
@@ -63,7 +63,8 @@ position = Vector2(-4, 686)
 texture = ExtResource("4_dv8kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax2D4/StaticBody2D"]
-position = Vector2(-4, 689)
+z_index = 4
+position = Vector2(-4, 685)
 shape = SubResource("RectangleShape2D_7yll4")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
