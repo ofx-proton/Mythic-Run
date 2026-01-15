@@ -123,6 +123,7 @@ text = "Main Menu"
 uppercase = true
 
 [node name="Button" type="Button" parent="CanvasLayer/Label"]
+z_index = 2
 texture_filter = 1
 layout_mode = 0
 offset_left = 307.0
@@ -132,6 +133,7 @@ offset_bottom = 149.0
 theme_override_fonts/font = ExtResource("22_g3i1d")
 theme_override_font_sizes/font_size = 32
 text = "Play"
+flat = true
 
 [node name="Transition" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -142,6 +144,7 @@ offset_left = -446.0
 offset_top = 3.0
 offset_right = 1160.0
 offset_bottom = 733.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_start_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://snikkikvfqab"]
+[gd_scene load_steps=62 format=3 uid="uid://eh6p873yq3uv"]
 
 [ext_resource type="Texture2D" uid="uid://dskbh2r46chxe" path="res://assets/Plant Animations/BlueFlower1/BlueFlower_00000.png" id="1_vmw0n"]
 [ext_resource type="Texture2D" uid="uid://bw3brim2ataoy" path="res://assets/Plant Animations/BlueFlower1/BlueFlower_00001.png" id="2_ux0g5"]
@@ -252,9 +252,11 @@ animations = [{
 [node name="Blue_flower" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pppyj")
 autoplay = "default"
 frame_progress = 0.53489864
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-10, -180, -102, -231, -184, -201, -218, -113, -208, -60, -186, -18, -122, -47, -94, -8, 8, 114, 69, 182, 117, 203, 159, 235, 201, 251, 236, 276, 260, 310, 295, 344, 316, 362, 352, 353, 305, 288, 268, 235, 199, 188, 138, 141, 99, 107, 46, 73, -39, -111, -7, -167)
