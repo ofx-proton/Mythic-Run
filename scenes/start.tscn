@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://24pmja8vcbh"]
+[gd_scene load_steps=26 format=3 uid="uid://24pmja8vcbh"]
 
-[ext_resource type="Script" uid="uid://m5nonvdv2g1e" path="res://scripts/start.gd" id="1_cdrmf"]
+[ext_resource type="Script" uid="uid://m5nonvdv2g1e" path="res://scripts/start.gd" id="1_b1pjr"]
 [ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_jaeev"]
 [ext_resource type="Texture2D" uid="uid://crxyruqm86471" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00000.png" id="2_hp05y"]
 [ext_resource type="Texture2D" uid="uid://coe4ubchlfcaa" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00001.png" id="3_g3i1d"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cn06tyfx6wtgm" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00018.png" id="20_0gyww"]
 [ext_resource type="Texture2D" uid="uid://ctpfboy1hr738" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00019.png" id="21_1bd0r"]
 [ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="22_g3i1d"]
+[ext_resource type="Script" uid="uid://dmxwsok08105b" path="res://scripts/transition.gd" id="24_71xtm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jaeev"]
 animations = [{
@@ -95,7 +96,7 @@ animations = [{
 [node name="Start" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_cdrmf")
+script = ExtResource("1_b1pjr")
 
 [node name="BG" parent="." instance=ExtResource("1_jaeev")]
 
@@ -131,5 +132,16 @@ offset_bottom = 149.0
 theme_override_fonts/font = ExtResource("22_g3i1d")
 theme_override_font_sizes/font_size = 32
 text = "Play"
+
+[node name="Transition" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("24_71xtm")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+offset_left = -446.0
+offset_top = 3.0
+offset_right = 1160.0
+offset_bottom = 733.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_start_pressed"]
