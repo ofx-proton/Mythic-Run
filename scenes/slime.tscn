@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://3ume6n488cks"]
+[gd_scene load_steps=34 format=3 uid="uid://3ume6n488cks"]
 
 [ext_resource type="Texture2D" uid="uid://bd2fgsq3mclf2" path="res://assets/Slimes/SlimeGreen/SlimeBasic_00000.png" id="1_eyfvk"]
+[ext_resource type="Script" uid="uid://dkfv4uhfftgbr" path="res://scripts/slime.gd" id="1_iscye"]
 [ext_resource type="Texture2D" uid="uid://btacayva4anfb" path="res://assets/Slimes/SlimeGreen/SlimeBasic_00001.png" id="2_iscye"]
 [ext_resource type="Texture2D" uid="uid://dgnjm4na8yxf4" path="res://assets/Slimes/SlimeGreen/SlimeBasic_00002.png" id="3_aq06o"]
 [ext_resource type="Texture2D" uid="uid://xgcr0gvish6j" path="res://assets/Slimes/SlimeGreen/SlimeBasic_00003.png" id="4_3tc40"]
@@ -130,14 +131,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yuttx"]
-radius = 98.005104
+radius = 39.812057
 
-[node name="Ground" type="StaticBody2D"]
+[node name="slime" type="CharacterBody2D"]
+script = ExtResource("1_iscye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-73, -57.000008)
+scale = Vector2(0.37765953, 0.40624997)
 sprite_frames = SubResource("SpriteFrames_6220k")
 frame_progress = 0.20982176
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 1)
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_yuttx")

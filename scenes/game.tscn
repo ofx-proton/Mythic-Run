@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmj8mbybvfxlk"]
+[gd_scene load_steps=6 format=3 uid="uid://dmj8mbybvfxlk"]
 
 [ext_resource type="Script" uid="uid://0gioihxtdway" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dsde7835r6wr2" path="res://scenes/ball.tscn" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://b85bj4ohkvc6g" path="res://scenes/player.tscn" id="2_yqjtg"]
 
-[node name="main" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(0, 1)
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("camera_2d", "spawn_timer")]
 script = ExtResource("1_lnu2h")
+ball_scene = ExtResource("2_iywne")
+camera_2d = NodePath("Player/Camera2D2")
+spawn_timer = NodePath("SpawnTimer")
 
 [node name="BG" parent="." instance=ExtResource("1_uwrxv")]
 
@@ -14,7 +21,17 @@ position = Vector2(-784, 576)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(477, -187)
+limit_top = 0
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 11.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 11.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")

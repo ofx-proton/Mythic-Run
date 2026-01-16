@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsde7835r6wr2"]
+[gd_scene load_steps=25 format=3 uid="uid://dsde7835r6wr2"]
 
 [ext_resource type="Texture2D" uid="uid://6spcckvtc7yo" path="res://assets/Plant Animations/PlantJump/JumpPlant_00000.png" id="1_60yjt"]
+[ext_resource type="Script" uid="uid://dxpqw7t6ch3md" path="res://scripts/ball.gd" id="1_hs3eu"]
 [ext_resource type="Texture2D" uid="uid://cd383bhyr43k3" path="res://assets/Plant Animations/PlantJump/JumpPlant_00001.png" id="2_hs3eu"]
 [ext_resource type="Texture2D" uid="uid://b14f832jwtalo" path="res://assets/Plant Animations/PlantJump/JumpPlant_00002.png" id="3_3sxaf"]
 [ext_resource type="Texture2D" uid="uid://bskf5abgn5fuo" path="res://assets/Plant Animations/PlantJump/JumpPlant_00003.png" id="4_8spec"]
@@ -95,7 +96,10 @@ radius = 87.823685
 [sub_resource type="CircleShape2D" id="CircleShape2D_3sxaf"]
 radius = 96.00521
 
-[node name="Hail" type="CharacterBody2D"]
+[node name="Hail" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_hs3eu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
