@@ -1,7 +1,7 @@
 extends Control
 
 @onready var transition: CanvasLayer = $Transition
-func _on_start_pressed():
+func _on_retry_pressed():
 	await transition.fade(1.0, 1.5).finished
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	

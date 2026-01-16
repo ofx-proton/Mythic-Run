@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ny4f5glkvqg"]
+
+[ext_resource type="Script" uid="uid://c3nfeg1rkgbah" path="res://scripts/end.gd" id="1_bvfni"]
+[ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="2_s4tl2"]
+[ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="3_8hmjt"]
+[ext_resource type="Script" uid="uid://dmxwsok08105b" path="res://scripts/transition.gd" id="4_o5lv4"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bvfni")
+
+[node name="BG" parent="." instance=ExtResource("2_s4tl2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, 400)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 392.0
+offset_top = 225.0
+offset_right = 805.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("3_8hmjt")
+theme_override_font_sizes/font_size = 64
+text = "You Lost"
+uppercase = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Label"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 96.0
+offset_top = 100.0
+offset_right = 191.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("3_8hmjt")
+theme_override_font_sizes/font_size = 32
+text = "retry"
+flat = true
+
+[node name="Transition" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("4_o5lv4")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+offset_left = -648.0
+offset_top = 16.0
+offset_right = 958.0
+offset_bottom = 746.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_retry_pressed"]

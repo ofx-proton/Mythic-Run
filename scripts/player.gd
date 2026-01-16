@@ -144,11 +144,8 @@ func die():
 	_show_game_over_screen()
 
 func _show_game_over_screen():
-
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
+	get_tree().change_scene_to_file("res://scenes/end.tscn")
 	
-	# For minimal lag, just reload
-	get_tree().reload_current_scene()
-	# OR go to menu:
 	
-	#get_tree().change_scene_to_file("res://scenes/start.tscn")
+	
