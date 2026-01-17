@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://75o5nvkiu17u"]
+
+[ext_resource type="Script" uid="uid://dg0gxrau8th6n" path="res://scripts/tips.gd" id="1_0hwcl"]
+[ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="2_isypl"]
+[ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="3_uvhq2"]
+[ext_resource type="Script" uid="uid://dmxwsok08105b" path="res://scripts/transition.gd" id="4_isypl"]
+
+[node name="tips" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0hwcl")
+
+[node name="BG" parent="." instance=ExtResource("2_isypl")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, 400)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 281.0
+offset_top = 198.0
+offset_right = 1785.0
+offset_bottom = 503.0
+theme_override_fonts/font = ExtResource("3_uvhq2")
+theme_override_font_sizes/font_size = 32
+text = "Move Left / Right: A / D
+Jump: SPACE
+Dash / Sprint: SHIFT
+Goal:
+Avoid the hail balls
+ falling from the sky. Survive as
+ long as you can!"
+uppercase = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Label"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 455.0
+offset_top = 280.0
+offset_right = 711.0
+offset_bottom = 370.0
+theme_override_fonts/font = ExtResource("3_uvhq2")
+theme_override_font_sizes/font_size = 32
+text = "Press Enter
+ to start"
+flat = true
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 380.0
+offset_top = 95.0
+offset_right = 793.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("3_uvhq2")
+theme_override_font_sizes/font_size = 64
+text = "Controls"
+uppercase = true
+
+[node name="Transition" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("4_isypl")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+offset_left = -667.0
+offset_top = 3.0
+offset_right = 1375.0
+offset_bottom = 733.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_retry_pressed"]

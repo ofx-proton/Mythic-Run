@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmj8mbybvfxlk"]
+[gd_scene load_steps=7 format=3 uid="uid://dmj8mbybvfxlk"]
 
 [ext_resource type="Script" uid="uid://0gioihxtdway" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dsde7835r6wr2" path="res://scenes/ball.tscn" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://b85bj4ohkvc6g" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://caq766xg2ir2s" path="res://scenes/hud.tscn" id="5_iywne"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 normal = Vector2(0, 1)
@@ -13,11 +14,12 @@ script = ExtResource("1_lnu2h")
 ball_scene = ExtResource("2_iywne")
 camera_2d = NodePath("Player/Camera2D2")
 spawn_timer = NodePath("SpawnTimer")
+hud_path = NodePath("HUD")
 
 [node name="BG" parent="." instance=ExtResource("1_uwrxv")]
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(-784, 576)
+position = Vector2(86, 570)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(477, -187)
@@ -35,3 +37,5 @@ wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="HUD" parent="." instance=ExtResource("5_iywne")]

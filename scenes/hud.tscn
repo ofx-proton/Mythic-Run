@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://caq766xg2ir2s"]
+
+[ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="1_ahhtf"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 416.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 32
+text = "Score: "
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 823.0
+offset_top = 8.0
+offset_right = 1236.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 32
+text = "High Score:"
+uppercase = true
+metadata/_edit_use_anchors_ = true

@@ -23,6 +23,7 @@ var dash_direction := 1
 # AUDIO
 const DEATH_SOUND = preload("res://assets/brackeys_platformer_assets/sounds/hurt.wav")
 const JUMP_SOUND = preload("res://assets/brackeys_platformer_assets/sounds/jump.wav")
+const DASH_SOUND = preload("res://assets/Dash.mp3")
 @onready var audio_player := AudioStreamPlayer.new()
 
 func _ready():
@@ -60,6 +61,7 @@ func _handle_input():
 	# Dash input 
 	if Input.is_action_just_pressed("move_dash") and can_dash and not is_dash:
 		_start_dash()
+		_play_sound(DASH_SOUND)
 		return
 	
 	# Jump input

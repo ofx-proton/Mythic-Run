@@ -1,0 +1,164 @@
+[gd_scene load_steps=26 format=3 uid="uid://24pmja8vcbh"]
+
+[ext_resource type="Script" uid="uid://m5nonvdv2g1e" path="res://scripts/start.gd" id="1_b1pjr"]
+[ext_resource type="PackedScene" uid="uid://dfomxf1ddgvr4" path="res://scenes/BG.tscn" id="1_jaeev"]
+[ext_resource type="Texture2D" uid="uid://crxyruqm86471" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00000.png" id="2_hp05y"]
+[ext_resource type="Texture2D" uid="uid://coe4ubchlfcaa" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00001.png" id="3_g3i1d"]
+[ext_resource type="Texture2D" uid="uid://dtdi5wm0vkh0t" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00002.png" id="4_cdrmf"]
+[ext_resource type="Texture2D" uid="uid://b3q4s10ks0vlp" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00003.png" id="5_b1pjr"]
+[ext_resource type="Texture2D" uid="uid://we53bpkjkbvq" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00004.png" id="6_71xtm"]
+[ext_resource type="Texture2D" uid="uid://ca1ognqry1ed1" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00005.png" id="7_d7e6r"]
+[ext_resource type="Texture2D" uid="uid://bdsda2bf7c8ap" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00006.png" id="8_8aotp"]
+[ext_resource type="Texture2D" uid="uid://boutjkfgxqiv5" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00007.png" id="9_728ow"]
+[ext_resource type="Texture2D" uid="uid://6wtvf64tenrc" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00008.png" id="10_fmdiu"]
+[ext_resource type="Texture2D" uid="uid://djua0s1iqwfxl" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00009.png" id="11_j7fht"]
+[ext_resource type="Texture2D" uid="uid://drbp3livkbfw4" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00010.png" id="12_gxmfj"]
+[ext_resource type="Texture2D" uid="uid://bcofatxxob6c1" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00011.png" id="13_8wh6k"]
+[ext_resource type="Texture2D" uid="uid://b6531o8v36jsx" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00012.png" id="14_82rlh"]
+[ext_resource type="Texture2D" uid="uid://cd0kp78eg2g6u" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00013.png" id="15_6hmx6"]
+[ext_resource type="Texture2D" uid="uid://bo6dnbyw7do86" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00014.png" id="16_ya0au"]
+[ext_resource type="Texture2D" uid="uid://d04hsba55h83p" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00015.png" id="17_dmnnq"]
+[ext_resource type="Texture2D" uid="uid://kp2kadl62evr" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00016.png" id="18_2gfuy"]
+[ext_resource type="Texture2D" uid="uid://bpkri3ubqd1gq" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00017.png" id="19_cc30s"]
+[ext_resource type="Texture2D" uid="uid://cn06tyfx6wtgm" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00018.png" id="20_0gyww"]
+[ext_resource type="Texture2D" uid="uid://ctpfboy1hr738" path="res://assets/BlueWizard/2BlueWizardIdle/Chara - BlueIdle00019.png" id="21_1bd0r"]
+[ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="22_g3i1d"]
+[ext_resource type="Script" uid="uid://dmxwsok08105b" path="res://scripts/transition.gd" id="24_71xtm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jaeev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hp05y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g3i1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cdrmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b1pjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_71xtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d7e6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8aotp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_728ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fmdiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j7fht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gxmfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8wh6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_82rlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6hmx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ya0au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dmnnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2gfuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cc30s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0gyww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1bd0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 21.0
+}]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b1pjr")
+
+[node name="BG" parent="." instance=ExtResource("1_jaeev")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(143, 388)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-378, 455)
+scale = Vector2(0.51953125, 0.47656238)
+sprite_frames = SubResource("SpriteFrames_jaeev")
+autoplay = "default"
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 724.0
+offset_top = 220.0
+offset_right = 1137.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("22_g3i1d")
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+uppercase = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Label"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 307.0
+offset_top = 100.0
+offset_right = 402.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("22_g3i1d")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+flat = true
+
+[node name="Button2" type="Button" parent="CanvasLayer/Label"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 233.0
+offset_top = 168.0
+offset_right = 418.0
+offset_bottom = 217.0
+theme_override_fonts/font = ExtResource("22_g3i1d")
+theme_override_font_sizes/font_size = 32
+text = "Controls"
+flat = true
+
+[node name="Transition" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("24_71xtm")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+offset_left = -446.0
+offset_top = 3.0
+offset_right = 1160.0
+offset_bottom = 733.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Label/Button2" to="." method="_on_menu_pressed"]

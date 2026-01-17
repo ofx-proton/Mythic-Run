@@ -6,77 +6,117 @@ extends Node2D
 @export var spawn_timer: Timer
 @export var initial_spawn_rate: float = 1.0
 @export var min_spawn_rate: float = 0.2
-@export var spawn_acceleration: float = 0.02
-@export var rain_angle: float = 60.0
-@export var rain_speed: float = 350.0
+@export var spawn_acceleration: float = 0.0175
+@export var rain_speed: float = 400.0
+@export var max_on_screen: int = 6
 
-# PRIVATE
-#var _extended_bounds: Rect2
-var _angle_rad: float
-var _sin_angle: float
-var _cos_angle: float
-var _velocity_template: Vector2
+# HUD
+@export var hud_path: NodePath   # drag HUD (CanvasLayer) here
 
-func _ready():
+# SCORE
+var score: int = 0
+var high_score: int = 0
+
+const SAVE_FILE := "user://highscore.save"
+
+@onready var score_label: Label = get_node(hud_path).get_node("Label2")
+@onready var high_score_label: Label = get_node(hud_path).get_node("Label3")
+
+
+func _ready() -> void:
 	randomize()
-	
-	# Pre-calculate trigonometric values (optimization)
-	_angle_rad = deg_to_rad(rain_angle)
-	_sin_angle = sin(_angle_rad)
-	_cos_angle = cos(_angle_rad)
-	_velocity_template = Vector2(rain_speed * _sin_angle, rain_speed * _cos_angle)
-	
-	if spawn_timer and ball_scene:
-		spawn_timer.timeout.connect(spawn_ball)
-		spawn_timer.wait_time = initial_spawn_rate
-		spawn_timer.start()
 
-func spawn_ball():
-	if not camera_2d or not ball_scene:
+	load_high_score()
+	_update_score_labels()
+
+	spawn_timer.timeout.connect(spawn_ball)
+	spawn_timer.wait_time = initial_spawn_rate
+	spawn_timer.start()
+
+
+func spawn_ball() -> void:
+	if _count_visible_balls() >= max_on_screen:
 		return
-	
-	# Calculate bounds once per spawn
-	var bounds = _get_camera_bounds()
-	var ball = ball_scene.instantiate()
-	
-	# Use pre-calculated velocity
-	var velocity = _velocity_template
-	
-	# Random starting position
-	var start_side = randi() % 2
+
+	var bounds := _get_camera_bounds()
+	var ball := ball_scene.instantiate()
+
+	var angle := deg_to_rad(randf_range(0.0, 89.0))
+	var velocity := Vector2(
+		rain_speed * sin(angle),
+		rain_speed * cos(angle)
+	)
+
 	var x: float
-	var y = bounds.position.y
-	
-	if start_side == 0:
-		# Start from left side
+	var y := bounds.position.y
+
+	if randi() % 2 == 0:
 		x = randf_range(bounds.position.x, bounds.position.x + bounds.size.x * 0.3)
 	else:
-		# Start from right side
 		x = randf_range(bounds.position.x + bounds.size.x * 0.7, bounds.position.x + bounds.size.x)
 		velocity.x = -velocity.x
-	
+
 	ball.global_position = Vector2(x, y)
 	ball.set_rain_velocity(velocity)
+
 	add_child(ball)
-	
-	# Accelerate spawn timer
+
+	# Score updates on spawn
+	score += 1
+	if score > high_score:
+		high_score = score
+		save_high_score()
+
+	_update_score_labels()
+
 	if spawn_timer.wait_time > min_spawn_rate:
-		spawn_timer.wait_time = max(min_spawn_rate, spawn_timer.wait_time - spawn_acceleration)
+		spawn_timer.wait_time = max(
+			min_spawn_rate,
+			spawn_timer.wait_time - spawn_acceleration
+		)
+
+
+func _update_score_labels() -> void:
+	score_label.text = "SCORE: %d" % score
+	high_score_label.text = "HIGH SCORE: %d" % high_score
+
+
+func _count_visible_balls() -> int:
+	var count := 0
+	for child in get_children():
+		if child is Node2D and get_viewport_rect().has_point(child.global_position):
+			count += 1
+	return count
+
 
 func _get_camera_bounds() -> Rect2:
-	if not camera_2d:
-		return Rect2(Vector2.ZERO, get_viewport_rect().size)
-	
-	var size = get_viewport_rect().size
-	var center = camera_2d.global_position
-	var bounds = Rect2(center - size / 2, size)
-	
-	# Pre-calculated trig values from _ready
-	var extra_width = _sin_angle / _cos_angle * size.y * 2  # tan(angle) = sin/cos
-	
+	var size := get_viewport_rect().size
+	var center := camera_2d.global_position
+	var extra := size.y * 2
+
 	return Rect2(
-		bounds.position.x - extra_width,
-		bounds.position.y - 100,
-		bounds.size.x + extra_width * 2,
-		bounds.size.y + 200
+		Vector2(center.x - size.x / 2 - extra, center.y - size.y / 2 - 100),
+		Vector2(size.x + extra * 2, size.y + 200)
 	)
+
+
+# -----------------------
+# HIGH SCORE SAVE SYSTEM
+# -----------------------
+
+func save_high_score() -> void:
+	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	if file:
+		file.store_32(high_score)
+		file.close()
+
+
+func load_high_score() -> void:
+	if not FileAccess.file_exists(SAVE_FILE):
+		high_score = 0
+		return
+
+	var file := FileAccess.open(SAVE_FILE, FileAccess.READ)
+	if file:
+		high_score = file.get_32()
+		file.close()

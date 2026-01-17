@@ -119,3 +119,5 @@ shape = SubResource("CircleShape2D_3sxaf")
 position = Vector2(5.9604645e-08, 1.9999998)
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_hs3eu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
