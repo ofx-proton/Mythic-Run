@@ -18,15 +18,16 @@ position = Vector2(-32, 400)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 281.0
-offset_top = 198.0
-offset_right = 1785.0
-offset_bottom = 503.0
+offset_left = 264.0
+offset_top = 163.0
+offset_right = 1768.0
+offset_bottom = 512.0
 theme_override_fonts/font = ExtResource("3_uvhq2")
 theme_override_font_sizes/font_size = 32
 text = "Move Left / Right: A / D
 Jump: SPACE
 Dash / Sprint: SHIFT
+Esc : Pause
 Goal:
 Avoid the hail balls
  falling from the sky. Survive as
@@ -37,10 +38,10 @@ uppercase = true
 z_index = 2
 texture_filter = 1
 layout_mode = 0
-offset_left = 455.0
-offset_top = 280.0
-offset_right = 711.0
-offset_bottom = 370.0
+offset_left = 401.0
+offset_top = 315.0
+offset_right = 657.0
+offset_bottom = 405.0
 theme_override_fonts/font = ExtResource("3_uvhq2")
 theme_override_font_sizes/font_size = 32
 text = "Press Enter
@@ -49,15 +50,16 @@ flat = true
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 offset_left = 380.0
-offset_top = 95.0
+offset_top = 36.0
 offset_right = 793.0
-offset_bottom = 177.0
+offset_bottom = 118.0
 theme_override_fonts/font = ExtResource("3_uvhq2")
 theme_override_font_sizes/font_size = 64
 text = "Controls"
 uppercase = true
 
 [node name="Transition" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 script = ExtResource("4_isypl")
 

@@ -6,16 +6,15 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
-	position += velocity * delta
+	global_position += velocity * delta
+	if global_position.y > 1500:
+		queue_free()
 
 func set_rain_velocity(v: Vector2) -> void:
 	velocity = v
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player") and body.has_method("die"):
-		body.die()
-	queue_free()
-
-func _process(delta):
-	if global_position.y > 2000:
+	if body.is_in_group("player"):
+		if body.has_method("die"):
+			body.die()
 		queue_free()
