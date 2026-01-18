@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg5b1k7r2f4ir"]
+
+[ext_resource type="Script" uid="uid://0gioihxtdway" path="res://scripts/game.gd" id="1_5pkh4"]
+[ext_resource type="PackedScene" uid="uid://dsde7835r6wr2" path="res://scenes/ball.tscn" id="2_jaqoi"]
+[ext_resource type="PackedScene" uid="uid://b85bj4ohkvc6g" path="res://scenes/player.tscn" id="3_7k7jx"]
+[ext_resource type="FontFile" uid="uid://bhtkki0jnb682" path="res://assets/Dino/fonts/retro.ttf" id="4_ms3rc"]
+[ext_resource type="PackedScene" uid="uid://caq766xg2ir2s" path="res://scenes/hud.tscn" id="5_wfnuv"]
+[ext_resource type="PackedScene" uid="uid://m473170t60i1" path="res://scenes/mountain.tscn" id="6_h8nkq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(0, 1)
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("camera_2d", "player_node", "spawn_timer")]
+script = ExtResource("1_5pkh4")
+ball_scene = ExtResource("2_jaqoi")
+camera_2d = NodePath("Player/Camera2D2")
+player_node = NodePath("Player")
+spawn_timer = NodePath("SpawnTimer")
+hud_path = NodePath("HUD")
+
+[node name="Player" parent="." instance=ExtResource("3_7k7jx")]
+position = Vector2(86, 570)
+
+[node name="Label" type="Label" parent="Player"]
+visible = false
+offset_left = 190.0
+offset_top = -229.0
+offset_right = 708.0
+offset_bottom = -147.0
+theme_override_fonts/font = ExtResource("4_ms3rc")
+theme_override_font_sizes/font_size = 64
+text = "Game Paused"
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(477, -187)
+limit_top = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 11.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 11.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="HUD" parent="." instance=ExtResource("5_wfnuv")]
+
+[node name="BG" parent="." instance=ExtResource("6_h8nkq")]
