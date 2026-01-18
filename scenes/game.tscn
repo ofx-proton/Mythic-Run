@@ -9,10 +9,11 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 normal = Vector2(0, 1)
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("camera_2d", "spawn_timer")]
+[node name="main" type="Node2D" node_paths=PackedStringArray("camera_2d", "player_node", "spawn_timer")]
 script = ExtResource("1_lnu2h")
 ball_scene = ExtResource("2_iywne")
 camera_2d = NodePath("Player/Camera2D2")
+player_node = NodePath("Player")
 spawn_timer = NodePath("SpawnTimer")
 hud_path = NodePath("HUD")
 

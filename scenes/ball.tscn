@@ -97,6 +97,7 @@ radius = 87.823685
 radius = 96.00521
 
 [node name="Hail" type="Area2D"]
+process_mode = 1
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_hs3eu")
