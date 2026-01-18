@@ -54,7 +54,7 @@ texture = ExtResource("3_7yll4")
 centered = false
 
 [node name="Ground" type="Parallax2D" parent="."]
-repeat_size = Vector2(1000, 0)
+repeat_size = Vector2(1152, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
@@ -64,7 +64,8 @@ texture = ExtResource("4_dv8kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
 z_index = 4
-position = Vector2(-4, 685)
+position = Vector2(7.999999, 697)
+scale = Vector2(1.5, 1.2)
 shape = SubResource("RectangleShape2D_7yll4")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
